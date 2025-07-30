@@ -1,0 +1,309 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header {
+  background-color: #282c34;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.mermaid-editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.export-button {
+  background-color: #28a745;
+}
+
+.export-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:disabled:hover {
+  background-color: #007bff;
+}
+
+.export-button:disabled:hover {
+  background-color: #28a745;
+}
+
+.filename-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.diagram-selector {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  max-width: 300px;
+}
+
+.diagram-selector:hover {
+  border-color: #007bff;
+}
+
+.editor-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.5rem;
+  height: calc(100vh - 120px);
+}
+
+.editor-panel, .preview-panel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.editor-panel h3, .preview-panel h3 {
+  margin: 0;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
+
+.code-textarea {
+  flex: 1;
+  border: none;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+.preview-container {
+  flex: 1;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  cursor: grab;
+  height: 100%;
+}
+
+.preview-container:active {
+  cursor: grabbing;
+}
+
+.preview-content {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  padding: 1rem;
+  transform-origin: center center;
+  transition: transform 0.1s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: white;
+  color: black;
+}
+
+.preview-content svg {
+  max-width: none;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.preview-content svg text {
+  overflow: visible;
+}
+
+.preview-content svg foreignObject {
+  overflow: visible;
+}
+
+.zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+  z-index: 10;
+}
+
+.zoom-button {
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-button:hover {
+  background-color: rgba(0, 86, 179, 0.9);
+}
+
+.zoom-level {
+  background-color: rgba(40, 44, 52, 0.8);
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.inline-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.inline-mode-toggle input[type="checkbox"] {
+  cursor: pointer;
+}
+
+
+.readme-preview {
+  flex: 1;
+  overflow: auto;
+  background-color: white;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.readme-preview h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.readme-preview h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.readme-preview h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.readme-preview p {
+  margin-bottom: 1rem;
+}
+
+.readme-preview pre {
+  background-color: #f6f8fa;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.readme-preview code {
+  background-color: rgba(175, 184, 193, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 85%;
+}
+
+.readme-preview pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.mermaid-diagram-container {
+  margin: 1.5rem 0;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.mermaid-diagram-container svg {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .editor-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .toolbar > * {
+    margin-bottom: 0.5rem;
+  }
+}
